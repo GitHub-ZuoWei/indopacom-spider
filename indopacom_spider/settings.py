@@ -199,7 +199,7 @@ BLOOMFILTER_BIT = 30
 SCHEDULER_PERSIST = True
 
 # ERROR: HTTP status code is not handled or not allowed
-HTTPERROR_ALLOWED_CODES = [301, 302, 403]
+HTTPERROR_ALLOWED_CODES = [301, 302, 304, 403]
 
 PROXIES_LIST = [
     # 'http://192.168.12.180:6666',
@@ -225,7 +225,8 @@ MONGO_NEWS_TABLE = 'data_collect_news'
 MONGO_HEARINGS_TABLE = 'data_collect_hearings'
 
 # Minio
-MINIO_URL = '192.168.12.196:8888'
+# MINIO_URL = '192.168.12.196:8888'
+MINIO_URL = '192.168.12.100:9000'
 MINIO_USER = 'minio'
 MINIO_PWD = 'admin123456'
 MINIO_BUCKET = 'indopacom'
@@ -234,7 +235,8 @@ MINIO_BUCKET = 'indopacom'
 FILES_STORE = 's3://indopacom/'
 IMAGES_STORE = 's3://indopacom/'
 IMAGES_STORE_S3_ACL = 'public-read'
-AWS_ENDPOINT_URL = 'http://192.168.12.196:8888'
+# AWS_ENDPOINT_URL = 'http://192.168.12.196:8888'
+AWS_ENDPOINT_URL = 'http://192.168.12.100:9000'
 AWS_ACCESS_KEY_ID = 'minio'
 AWS_SECRET_ACCESS_KEY = 'admin123456'
 AWS_VERIFY = False
@@ -242,3 +244,12 @@ AWS_USE_SSL = False
 
 # 下载图片、文件  允许重定向
 MEDIA_ALLOW_REDIRECTS = True
+
+# FTP
+FTP_HOST = "223.223.177.101"
+FTP_USER = "internet-data"
+FTP_PWD = "yqjc47ftp*"
+
+# 文件相对路径
+FILE_PATH_NEWS = "indopacom_spider/resource/zip_file/news"
+FILE_PATH_HEARINGS = "indopacom_spider/resource/zip_file/hearings"

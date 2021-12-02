@@ -40,7 +40,7 @@ class BreakingdefenseSpider(scrapy.Spider):
     # allowed_domains = ['breakingdefense.com']  不好使  辣子鸡 :<
     start_urls = ['https://www.breakingdefense.com/tag/wargames/']
 
-    total_page_num = 2
+    total_page_num = 20
 
     def start_requests(self):
         self.logger.info(f'新闻总页数为:{self.total_page_num}')
@@ -70,7 +70,7 @@ class BreakingdefenseSpider(scrapy.Spider):
         news_list = element_html.xpath('//h3[@class="postTitle"]/a/@href')
         for item in news_list:
             if not item.startswith('https://breakingdefense.com/tag/'):
-                yield response.follow(url=item, callback=self.parse_content, dont_filter=False)
+                yield response.follow(url=item, callback=self.parse_content, dont_filter=True)
 
     def parse_content(self, response):
         self.logger.info(f'详情页URL:{response.url}')

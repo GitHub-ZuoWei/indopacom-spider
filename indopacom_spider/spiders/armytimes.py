@@ -42,7 +42,7 @@ class ArmytimesSpider(scrapy.Spider):
     # 每页数量
     page_num = 10
     # 新闻总数量
-    total_num = 100
+    total_num = 2000
 
     def start_requests(self):
         self.logger.info(f'新闻总页数为:{self.total_num / self.page_num}')
